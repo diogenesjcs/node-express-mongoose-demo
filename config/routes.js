@@ -39,6 +39,8 @@ module.exports = function (app, passport) {
       failureFlash: 'Invalid email or password.'
     }), users.session);
   app.get('/users/:userId', users.show);
+
+  app.get('/users/findUser', users.getUser);
   app.get('/auth/facebook',
     pauth('facebook', {
       scope: [ 'email', 'user_about_me'],

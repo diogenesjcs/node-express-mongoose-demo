@@ -49,6 +49,16 @@ exports.create = async(function* (req, res) {
   }
 });
 
+
+exports.getUser = function (req, res) {
+  const email = req.params.email;
+
+  const user = yield User.loadUser({ email });
+  res.json(obj);
+
+};
+
+
 /**
  *  Show profile
  */

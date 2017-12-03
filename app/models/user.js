@@ -180,7 +180,13 @@ UserSchema.statics = {
   load: function (options, cb) {
     options.select = options.select || 'name username';
     return this.findOne(options.criteria)
-      .select(options.select)
+      .select()
+      .exec(cb);
+  },
+  loadUser: function (options, cb) {
+    options.select = options.select || 'name username email';
+    return this.findOne(options.criteria)
+      .select()
       .exec(cb);
   }
 };
